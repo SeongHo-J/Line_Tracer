@@ -1,0 +1,25 @@
+PORTA
+발광부 8개
+
+PORTB
+PB4 R_PWM
+PB7 L_PWM
+
+PORTC
+PC0 Direction_R
+PC2 Break_R
+PC4 Direction_L
+PC6 Break_L
+
+// PORTD
+// PD0 스위치
+// PD 2 6 상태표시등
+
+PORTE
+PE4 R_A
+PE5 R_B
+PE6 L_A
+PE7 L_B
+
+PORTF
+수광부 8개

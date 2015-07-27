@@ -1,0 +1,1226 @@
+
+line_tracer_test_2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000010  00800100  000005bc  00000650  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000005bc  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000066  00800110  00800110  00000660  2**0
+                  ALLOC
+  3 .debug_aranges 00000020  00000000  00000000  00000660  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000159  00000000  00000000  00000680  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000006fb  00000000  00000000  000007d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000001ce  00000000  00000000  00000ed4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000768  00000000  00000000  000010a2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000d0  00000000  00000000  0000180c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001c5  00000000  00000000  000018dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000098  00000000  00000000  00001aa1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000078  00000000  00000000  00001b39  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   8:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+   c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  10:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  14:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  18:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  1c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  20:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  24:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  28:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  2c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  30:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  34:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  38:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  3c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  40:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  44:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  48:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  4c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  50:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  54:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  58:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  5c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  60:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  64:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  68:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  6c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  70:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  74:	0c 94 89 02 	jmp	0x512	; 0x512 <__vector_29>
+  78:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  7c:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  80:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  84:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+  88:	0c 94 65 00 	jmp	0xca	; 0xca <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ec eb       	ldi	r30, 0xBC	; 188
+  a0:	f5 e0       	ldi	r31, 0x05	; 5
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 31       	cpi	r26, 0x10	; 16
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	11 e0       	ldi	r17, 0x01	; 1
+  b4:	a0 e1       	ldi	r26, 0x10	; 16
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a6 37       	cpi	r26, 0x76	; 118
+  be:	b1 07       	cpc	r27, r17
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	0e 94 ae 00 	call	0x15c	; 0x15c <main>
+  c6:	0c 94 dc 02 	jmp	0x5b8	; 0x5b8 <_exit>
+
+000000ca <__bad_interrupt>:
+  ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ce <init_PORT>:
+/* initialize function of linetracer*/
+
+/* PORTA initialize*/
+void init_PORT(void) {
+	DDRA = 0xFF; // IR_sense emitter
+  ce:	8f ef       	ldi	r24, 0xFF	; 255
+  d0:	8a bb       	out	0x1a, r24	; 26
+	DDRB = 0xFF; // PWM_left = PB5(OC1A) PWM_right = PB6(OC1B)
+  d2:	87 bb       	out	0x17, r24	; 23
+	DDRC = 0x07; // LED0=PC0, LED1=PC1, DIR_left=PC2=1, DIR_right=PC3=0
+  d4:	87 e0       	ldi	r24, 0x07	; 7
+  d6:	84 bb       	out	0x14, r24	; 20
+	DDRD = 0x00; // SW(INT0)=PD0
+  d8:	11 ba       	out	0x11, r1	; 17
+	DDRE = 0x0E; // USART RxD0=PE0, FxD0=PE1
+  da:	8e e0       	ldi	r24, 0x0E	; 14
+  dc:	82 b9       	out	0x02, r24	; 2
+				 // encoder_l_A(INT4)=PE4 encoder_l_B(INT5)=PE5, encoder_r_A(INT6)=PE6, encoder_r_B(INT7)=PE7
+	DDRF = 0x00; // ADCn
+  de:	10 92 61 00 	sts	0x0061, r1
+	
+	PORTA = 0x00; // IR_sense emitter off
+  e2:	1b ba       	out	0x1b, r1	; 27
+	PORTB = 0x00;
+  e4:	18 ba       	out	0x18, r1	; 24
+	PORTC = 0x00; //  LED0,1 off, DIR_r,l = 0 
+  e6:	15 ba       	out	0x15, r1	; 21
+}
+  e8:	08 95       	ret
+
+000000ea <init_EX_INTERRUPT>:
+
+/* external interrupt initialize */
+void init_EX_INTERRUPT(void) {
+	
+	EICRA = 0x02; // falling edge of INT0 generate asynchronously an interrupt request
+  ea:	82 e0       	ldi	r24, 0x02	; 2
+  ec:	80 93 6a 00 	sts	0x006A, r24
+	//EICRB = 0x55; // INT4~7 any logic change generate interrupt request
+	EIMSK = 0x01; // enable the INT0
+  f0:	81 e0       	ldi	r24, 0x01	; 1
+  f2:	89 bf       	out	0x39, r24	; 57
+}
+  f4:	08 95       	ret
+
+000000f6 <init_TIMER>:
+	//TCCR0 = 0x69; // CTC, nomal mode, no prescale
+	//TIMSK = 0x00; // time overflow interrupt
+
+	//OCR0 = 16; // 16Mhz crystal, 20us delay, no prescaler
+
+	TCCR3A = 0x02; // COMnx1:0 nomal mode , WGM3 1:0 fast PWM with ICRn TOP
+  f6:	82 e0       	ldi	r24, 0x02	; 2
+  f8:	80 93 8b 00 	sts	0x008B, r24
+	TCCR3B = 0x1A; // WGM3 3:2 fast PWM with ICRn TOP, 8 prescaler
+  fc:	8a e1       	ldi	r24, 0x1A	; 26
+  fe:	80 93 8a 00 	sts	0x008A, r24
+	ETIMSK = 0x04; // Timer/Counter3 overflow interrupt enable(TOIE3)
+ 102:	84 e0       	ldi	r24, 0x04	; 4
+ 104:	80 93 7d 00 	sts	0x007D, r24
+
+	ICR3 = 40000; // ICRH and ICRL / 16Mhz crystal, 20ms control period, 8 prescaler
+ 108:	80 e4       	ldi	r24, 0x40	; 64
+ 10a:	9c e9       	ldi	r25, 0x9C	; 156
+ 10c:	90 93 81 00 	sts	0x0081, r25
+ 110:	80 93 80 00 	sts	0x0080, r24
+}
+ 114:	08 95       	ret
+
+00000116 <init_PWM>:
+
+/* PWM initialize */
+void init_PWM(void) {
+	
+	TCCR1A = 0xA2; // fast PWM with ICRn TOP,  COM1A=10, COM1B = 10, COM1C =00, WGM1 1:0 = 10
+ 116:	82 ea       	ldi	r24, 0xA2	; 162
+ 118:	8f bd       	out	0x2f, r24	; 47
+				   // OCR1A and OCR1B clear on compare match
+	TCCR1B = 0x0A; // WGM1 3:2 = 11, 8 prescaler
+ 11a:	8a e0       	ldi	r24, 0x0A	; 10
+ 11c:	8e bd       	out	0x2e, r24	; 46
+
+	ICR1= 0xFFFF;
+ 11e:	8f ef       	ldi	r24, 0xFF	; 255
+ 120:	9f ef       	ldi	r25, 0xFF	; 255
+ 122:	97 bd       	out	0x27, r25	; 39
+ 124:	86 bd       	out	0x26, r24	; 38
+
+	OCR1A = 0x0000;
+ 126:	1b bc       	out	0x2b, r1	; 43
+ 128:	1a bc       	out	0x2a, r1	; 42
+	OCR1B = 0x0000;
+ 12a:	19 bc       	out	0x29, r1	; 41
+ 12c:	18 bc       	out	0x28, r1	; 40
+
+}
+ 12e:	08 95       	ret
+
+00000130 <init_USART>:
+
+/* USART initialize */
+void init_USART(void) {
+	
+	UBRR0H = 0;		
+ 130:	10 92 90 00 	sts	0x0090, r1
+	UBRR0L = 8; // f_osc = 16 Mhz , Baud rate = 115200(bps)
+ 134:	88 e0       	ldi	r24, 0x08	; 8
+ 136:	89 b9       	out	0x09, r24	; 9
+	UCSR0B = 0x18; // RXEN=1, TXEN=1
+ 138:	88 e1       	ldi	r24, 0x18	; 24
+ 13a:	8a b9       	out	0x0a, r24	; 10
+	UCSR0C = 0x06; // Asynchronous / No parity / 1 stop bit / 8 bit data size
+ 13c:	86 e0       	ldi	r24, 0x06	; 6
+ 13e:	80 93 95 00 	sts	0x0095, r24
+}
+ 142:	08 95       	ret
+
+00000144 <init_ADC>:
+
+/* ADC initialize */
+void init_ADC(void) {
+	
+	ADMUX = 0x00;
+ 144:	17 b8       	out	0x07, r1	; 7
+	ADCSRA = 0x87;
+ 146:	87 e8       	ldi	r24, 0x87	; 135
+ 148:	86 b9       	out	0x06, r24	; 6
+
+}
+ 14a:	08 95       	ret
+
+0000014c <Uart_Putch0>:
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 14c:	5d 9b       	sbis	0x0b, 5	; 11
+ 14e:	fe cf       	rjmp	.-4      	; 0x14c <Uart_Putch0>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 150:	8c b9       	out	0x0c, r24	; 12
+}
+ 152:	08 95       	ret
+
+00000154 <Uart_Getch0>:
+
+/* function of transmiting the data to MCU */
+unsigned char Uart_Getch0( void )
+{
+	
+	while ( !(UCSR0A & (1<<RXC0))); /* Wait for data to be received */
+ 154:	5f 9b       	sbis	0x0b, 7	; 11
+ 156:	fe cf       	rjmp	.-4      	; 0x154 <Uart_Getch0>
+	
+	return UDR0; /* Get and return received data from buffer */
+ 158:	8c b1       	in	r24, 0x0c	; 12
+}
+ 15a:	08 95       	ret
+
+0000015c <main>:
+	sei();
+}
+
+int main(void) {
+	
+	init_PORT();
+ 15c:	0e 94 67 00 	call	0xce	; 0xce <init_PORT>
+	//TCCR0 = 0x69; // CTC, nomal mode, no prescale
+	//TIMSK = 0x00; // time overflow interrupt
+
+	//OCR0 = 16; // 16Mhz crystal, 20us delay, no prescaler
+
+	TCCR3A = 0x02; // COMnx1:0 nomal mode , WGM3 1:0 fast PWM with ICRn TOP
+ 160:	22 e0       	ldi	r18, 0x02	; 2
+ 162:	20 93 8b 00 	sts	0x008B, r18
+	TCCR3B = 0x1A; // WGM3 3:2 fast PWM with ICRn TOP, 8 prescaler
+ 166:	8a e1       	ldi	r24, 0x1A	; 26
+ 168:	80 93 8a 00 	sts	0x008A, r24
+	ETIMSK = 0x04; // Timer/Counter3 overflow interrupt enable(TOIE3)
+ 16c:	84 e0       	ldi	r24, 0x04	; 4
+ 16e:	80 93 7d 00 	sts	0x007D, r24
+
+	ICR3 = 40000; // ICRH and ICRL / 16Mhz crystal, 20ms control period, 8 prescaler
+ 172:	80 e4       	ldi	r24, 0x40	; 64
+ 174:	9c e9       	ldi	r25, 0x9C	; 156
+ 176:	90 93 81 00 	sts	0x0081, r25
+ 17a:	80 93 80 00 	sts	0x0080, r24
+}
+
+/* external interrupt initialize */
+void init_EX_INTERRUPT(void) {
+	
+	EICRA = 0x02; // falling edge of INT0 generate asynchronously an interrupt request
+ 17e:	20 93 6a 00 	sts	0x006A, r18
+	//EICRB = 0x55; // INT4~7 any logic change generate interrupt request
+	EIMSK = 0x01; // enable the INT0
+ 182:	81 e0       	ldi	r24, 0x01	; 1
+ 184:	89 bf       	out	0x39, r24	; 57
+}
+
+/* ADC initialize */
+void init_ADC(void) {
+	
+	ADMUX = 0x00;
+ 186:	17 b8       	out	0x07, r1	; 7
+	ADCSRA = 0x87;
+ 188:	87 e8       	ldi	r24, 0x87	; 135
+ 18a:	86 b9       	out	0x06, r24	; 6
+}
+
+/* USART initialize */
+void init_USART(void) {
+	
+	UBRR0H = 0;		
+ 18c:	10 92 90 00 	sts	0x0090, r1
+	UBRR0L = 8; // f_osc = 16 Mhz , Baud rate = 115200(bps)
+ 190:	88 e0       	ldi	r24, 0x08	; 8
+ 192:	89 b9       	out	0x09, r24	; 9
+	UCSR0B = 0x18; // RXEN=1, TXEN=1
+ 194:	88 e1       	ldi	r24, 0x18	; 24
+ 196:	8a b9       	out	0x0a, r24	; 10
+	UCSR0C = 0x06; // Asynchronous / No parity / 1 stop bit / 8 bit data size
+ 198:	86 e0       	ldi	r24, 0x06	; 6
+ 19a:	80 93 95 00 	sts	0x0095, r24
+	init_TIMER();
+	init_EX_INTERRUPT();
+	init_ADC();
+	init_USART();
+
+	sei();
+ 19e:	78 94       	sei
+ 1a0:	ff cf       	rjmp	.-2      	; 0x1a0 <main+0x44>
+
+000001a2 <ADC_get>:
+
+	return 0;
+}
+
+// Get ADC from IR sensor
+void ADC_get(void) {
+ 1a2:	bf 92       	push	r11
+ 1a4:	cf 92       	push	r12
+ 1a6:	df 92       	push	r13
+ 1a8:	ef 92       	push	r14
+ 1aa:	ff 92       	push	r15
+ 1ac:	0f 93       	push	r16
+ 1ae:	1f 93       	push	r17
+
+	//-------------IR order----------//	
+	// 0 - 4 - 1 - 5 - 2 - 6 - 3 - 7 //
+
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {			
+ 1b0:	10 92 13 01 	sts	0x0113, r1
+ 1b4:	10 92 12 01 	sts	0x0112, r1
+
+			break;
+			
+			/* ADC_5 convert */
+			case 3 :
+				PORTA = 0x20;
+ 1b8:	50 e2       	ldi	r21, 0x20	; 32
+ 1ba:	b5 2e       	mov	r11, r21
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+ 1bc:	25 e3       	ldi	r18, 0x35	; 53
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[5] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC2; // prepare for ADC_2
+ 1be:	42 ec       	ldi	r20, 0xC2	; 194
+ 1c0:	d4 2e       	mov	r13, r20
+
+			break;
+			
+			/* ADC_6 convert */
+			case 5 :
+				PORTA = 0x40;
+ 1c2:	30 e4       	ldi	r19, 0x40	; 64
+ 1c4:	c3 2e       	mov	r12, r19
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[6] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC3; // prepare for ADC_3
+ 1c6:	93 ec       	ldi	r25, 0xC3	; 195
+ 1c8:	e9 2e       	mov	r14, r25
+
+			break;
+			
+			/* ADC_2 convert */
+			case 4 :
+				PORTA = 0x04;
+ 1ca:	04 e0       	ldi	r16, 0x04	; 4
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[2] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC6; // prepare for ADC_6
+ 1cc:	86 ec       	ldi	r24, 0xC6	; 198
+ 1ce:	f8 2e       	mov	r15, r24
+
+			break;
+			
+			/* ADC_3 convert */
+			case 6 :
+				PORTA = 0x08;
+ 1d0:	b8 e0       	ldi	r27, 0x08	; 8
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[3] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC7; // prepare for ADC_7
+ 1d2:	17 ec       	ldi	r17, 0xC7	; 199
+
+			break;
+			
+			/* ADC_7 convert */
+			case 7 :
+				PORTA = 0x80;
+ 1d4:	f0 e8       	ldi	r31, 0x80	; 128
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[7] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC0; // prepare for ADC_0
+ 1d6:	a0 ec       	ldi	r26, 0xC0	; 192
+
+			break;
+			
+			/* ADC_4 convert */
+			case 1 :
+				PORTA = 0x10;
+ 1d8:	e0 e1       	ldi	r30, 0x10	; 16
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[4] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC1; // prepare for ADC_1
+ 1da:	61 ec       	ldi	r22, 0xC1	; 193
+
+			break;
+			
+			/* ADC_1 convert */
+			case 2 :
+				PORTA = 0x02;
+ 1dc:	72 e0       	ldi	r23, 0x02	; 2
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[1] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC5; // prepare for ADC_5
+ 1de:	55 ec       	ldi	r21, 0xC5	; 197
+		
+		switch(i) {
+			
+			/* ADC_0 convert */
+			case 0 :
+				PORTA = 0x01;
+ 1e0:	31 e0       	ldi	r19, 0x01	; 1
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+				ADC_DATA[0] = ADC;
+				
+				PORTA = 0x00;
+				
+				ADMUX = 0xC4; // prepare for ADC_4
+ 1e2:	44 ec       	ldi	r20, 0xC4	; 196
+ 1e4:	bc c0       	rjmp	.+376    	; 0x35e <ADC_get+0x1bc>
+	//-------------IR order----------//	
+	// 0 - 4 - 1 - 5 - 2 - 6 - 3 - 7 //
+
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {			
+		
+		switch(i) {
+ 1e6:	80 91 12 01 	lds	r24, 0x0112
+ 1ea:	90 91 13 01 	lds	r25, 0x0113
+ 1ee:	83 30       	cpi	r24, 0x03	; 3
+ 1f0:	91 05       	cpc	r25, r1
+ 1f2:	09 f4       	brne	.+2      	; 0x1f6 <ADC_get+0x54>
+ 1f4:	52 c0       	rjmp	.+164    	; 0x29a <ADC_get+0xf8>
+ 1f6:	84 30       	cpi	r24, 0x04	; 4
+ 1f8:	91 05       	cpc	r25, r1
+ 1fa:	4c f4       	brge	.+18     	; 0x20e <ADC_get+0x6c>
+ 1fc:	81 30       	cpi	r24, 0x01	; 1
+ 1fe:	91 05       	cpc	r25, r1
+ 200:	41 f1       	breq	.+80     	; 0x252 <ADC_get+0xb0>
+ 202:	82 30       	cpi	r24, 0x02	; 2
+ 204:	91 05       	cpc	r25, r1
+ 206:	bc f5       	brge	.+110    	; 0x276 <ADC_get+0xd4>
+ 208:	89 2b       	or	r24, r25
+ 20a:	89 f0       	breq	.+34     	; 0x22e <ADC_get+0x8c>
+ 20c:	9f c0       	rjmp	.+318    	; 0x34c <ADC_get+0x1aa>
+ 20e:	85 30       	cpi	r24, 0x05	; 5
+ 210:	91 05       	cpc	r25, r1
+ 212:	09 f4       	brne	.+2      	; 0x216 <ADC_get+0x74>
+ 214:	66 c0       	rjmp	.+204    	; 0x2e2 <ADC_get+0x140>
+ 216:	85 30       	cpi	r24, 0x05	; 5
+ 218:	91 05       	cpc	r25, r1
+ 21a:	0c f4       	brge	.+2      	; 0x21e <ADC_get+0x7c>
+ 21c:	50 c0       	rjmp	.+160    	; 0x2be <ADC_get+0x11c>
+ 21e:	86 30       	cpi	r24, 0x06	; 6
+ 220:	91 05       	cpc	r25, r1
+ 222:	09 f4       	brne	.+2      	; 0x226 <ADC_get+0x84>
+ 224:	70 c0       	rjmp	.+224    	; 0x306 <ADC_get+0x164>
+ 226:	07 97       	sbiw	r24, 0x07	; 7
+ 228:	09 f0       	breq	.+2      	; 0x22c <ADC_get+0x8a>
+ 22a:	90 c0       	rjmp	.+288    	; 0x34c <ADC_get+0x1aa>
+ 22c:	7e c0       	rjmp	.+252    	; 0x32a <ADC_get+0x188>
+			
+			/* ADC_0 convert */
+			case 0 :
+				PORTA = 0x01;
+ 22e:	3b bb       	out	0x1b, r19	; 27
+ 230:	82 2f       	mov	r24, r18
+ 232:	8a 95       	dec	r24
+ 234:	f1 f7       	brne	.-4      	; 0x232 <ADC_get+0x90>
+				
+				_delay_us(DELAY);
+
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 236:	86 b1       	in	r24, 0x06	; 6
+ 238:	80 6c       	ori	r24, 0xC0	; 192
+ 23a:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 23c:	34 9b       	sbis	0x06, 4	; 6
+ 23e:	fe cf       	rjmp	.-4      	; 0x23c <ADC_get+0x9a>
+				ADC_DATA[0] = ADC;
+ 240:	84 b1       	in	r24, 0x04	; 4
+ 242:	95 b1       	in	r25, 0x05	; 5
+ 244:	90 93 1f 01 	sts	0x011F, r25
+ 248:	80 93 1e 01 	sts	0x011E, r24
+				
+				PORTA = 0x00;
+ 24c:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC4; // prepare for ADC_4
+ 24e:	47 b9       	out	0x07, r20	; 7
+ 250:	7d c0       	rjmp	.+250    	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_4 convert */
+			case 1 :
+				PORTA = 0x10;
+ 252:	eb bb       	out	0x1b, r30	; 27
+ 254:	82 2f       	mov	r24, r18
+ 256:	8a 95       	dec	r24
+ 258:	f1 f7       	brne	.-4      	; 0x256 <ADC_get+0xb4>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 25a:	86 b1       	in	r24, 0x06	; 6
+ 25c:	80 6c       	ori	r24, 0xC0	; 192
+ 25e:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 260:	34 9b       	sbis	0x06, 4	; 6
+ 262:	fe cf       	rjmp	.-4      	; 0x260 <ADC_get+0xbe>
+				ADC_DATA[4] = ADC;
+ 264:	84 b1       	in	r24, 0x04	; 4
+ 266:	95 b1       	in	r25, 0x05	; 5
+ 268:	90 93 27 01 	sts	0x0127, r25
+ 26c:	80 93 26 01 	sts	0x0126, r24
+				
+				PORTA = 0x00;
+ 270:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC1; // prepare for ADC_1
+ 272:	67 b9       	out	0x07, r22	; 7
+ 274:	6b c0       	rjmp	.+214    	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_1 convert */
+			case 2 :
+				PORTA = 0x02;
+ 276:	7b bb       	out	0x1b, r23	; 27
+ 278:	82 2f       	mov	r24, r18
+ 27a:	8a 95       	dec	r24
+ 27c:	f1 f7       	brne	.-4      	; 0x27a <ADC_get+0xd8>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 27e:	86 b1       	in	r24, 0x06	; 6
+ 280:	80 6c       	ori	r24, 0xC0	; 192
+ 282:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 284:	34 9b       	sbis	0x06, 4	; 6
+ 286:	fe cf       	rjmp	.-4      	; 0x284 <ADC_get+0xe2>
+				ADC_DATA[1] = ADC;
+ 288:	84 b1       	in	r24, 0x04	; 4
+ 28a:	95 b1       	in	r25, 0x05	; 5
+ 28c:	90 93 21 01 	sts	0x0121, r25
+ 290:	80 93 20 01 	sts	0x0120, r24
+				
+				PORTA = 0x00;
+ 294:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC5; // prepare for ADC_5
+ 296:	57 b9       	out	0x07, r21	; 7
+ 298:	59 c0       	rjmp	.+178    	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_5 convert */
+			case 3 :
+				PORTA = 0x20;
+ 29a:	bb ba       	out	0x1b, r11	; 27
+ 29c:	82 2f       	mov	r24, r18
+ 29e:	8a 95       	dec	r24
+ 2a0:	f1 f7       	brne	.-4      	; 0x29e <ADC_get+0xfc>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 2a2:	86 b1       	in	r24, 0x06	; 6
+ 2a4:	80 6c       	ori	r24, 0xC0	; 192
+ 2a6:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 2a8:	34 9b       	sbis	0x06, 4	; 6
+ 2aa:	fe cf       	rjmp	.-4      	; 0x2a8 <ADC_get+0x106>
+				ADC_DATA[5] = ADC;
+ 2ac:	84 b1       	in	r24, 0x04	; 4
+ 2ae:	95 b1       	in	r25, 0x05	; 5
+ 2b0:	90 93 29 01 	sts	0x0129, r25
+ 2b4:	80 93 28 01 	sts	0x0128, r24
+				
+				PORTA = 0x00;
+ 2b8:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC2; // prepare for ADC_2
+ 2ba:	d7 b8       	out	0x07, r13	; 7
+ 2bc:	47 c0       	rjmp	.+142    	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_2 convert */
+			case 4 :
+				PORTA = 0x04;
+ 2be:	0b bb       	out	0x1b, r16	; 27
+ 2c0:	82 2f       	mov	r24, r18
+ 2c2:	8a 95       	dec	r24
+ 2c4:	f1 f7       	brne	.-4      	; 0x2c2 <ADC_get+0x120>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 2c6:	86 b1       	in	r24, 0x06	; 6
+ 2c8:	80 6c       	ori	r24, 0xC0	; 192
+ 2ca:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 2cc:	34 9b       	sbis	0x06, 4	; 6
+ 2ce:	fe cf       	rjmp	.-4      	; 0x2cc <ADC_get+0x12a>
+				ADC_DATA[2] = ADC;
+ 2d0:	84 b1       	in	r24, 0x04	; 4
+ 2d2:	95 b1       	in	r25, 0x05	; 5
+ 2d4:	90 93 23 01 	sts	0x0123, r25
+ 2d8:	80 93 22 01 	sts	0x0122, r24
+				
+				PORTA = 0x00;
+ 2dc:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC6; // prepare for ADC_6
+ 2de:	f7 b8       	out	0x07, r15	; 7
+ 2e0:	35 c0       	rjmp	.+106    	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_6 convert */
+			case 5 :
+				PORTA = 0x40;
+ 2e2:	cb ba       	out	0x1b, r12	; 27
+ 2e4:	82 2f       	mov	r24, r18
+ 2e6:	8a 95       	dec	r24
+ 2e8:	f1 f7       	brne	.-4      	; 0x2e6 <ADC_get+0x144>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 2ea:	86 b1       	in	r24, 0x06	; 6
+ 2ec:	80 6c       	ori	r24, 0xC0	; 192
+ 2ee:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 2f0:	34 9b       	sbis	0x06, 4	; 6
+ 2f2:	fe cf       	rjmp	.-4      	; 0x2f0 <ADC_get+0x14e>
+				ADC_DATA[6] = ADC;
+ 2f4:	84 b1       	in	r24, 0x04	; 4
+ 2f6:	95 b1       	in	r25, 0x05	; 5
+ 2f8:	90 93 2b 01 	sts	0x012B, r25
+ 2fc:	80 93 2a 01 	sts	0x012A, r24
+				
+				PORTA = 0x00;
+ 300:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC3; // prepare for ADC_3
+ 302:	e7 b8       	out	0x07, r14	; 7
+ 304:	23 c0       	rjmp	.+70     	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_3 convert */
+			case 6 :
+				PORTA = 0x08;
+ 306:	bb bb       	out	0x1b, r27	; 27
+ 308:	82 2f       	mov	r24, r18
+ 30a:	8a 95       	dec	r24
+ 30c:	f1 f7       	brne	.-4      	; 0x30a <ADC_get+0x168>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 30e:	86 b1       	in	r24, 0x06	; 6
+ 310:	80 6c       	ori	r24, 0xC0	; 192
+ 312:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 314:	34 9b       	sbis	0x06, 4	; 6
+ 316:	fe cf       	rjmp	.-4      	; 0x314 <ADC_get+0x172>
+				ADC_DATA[3] = ADC;
+ 318:	84 b1       	in	r24, 0x04	; 4
+ 31a:	95 b1       	in	r25, 0x05	; 5
+ 31c:	90 93 25 01 	sts	0x0125, r25
+ 320:	80 93 24 01 	sts	0x0124, r24
+				
+				PORTA = 0x00;
+ 324:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC7; // prepare for ADC_7
+ 326:	17 b9       	out	0x07, r17	; 7
+ 328:	11 c0       	rjmp	.+34     	; 0x34c <ADC_get+0x1aa>
+
+			break;
+			
+			/* ADC_7 convert */
+			case 7 :
+				PORTA = 0x80;
+ 32a:	fb bb       	out	0x1b, r31	; 27
+ 32c:	82 2f       	mov	r24, r18
+ 32e:	8a 95       	dec	r24
+ 330:	f1 f7       	brne	.-4      	; 0x32e <ADC_get+0x18c>
+				
+				_delay_us(DELAY);
+				ADCSRA |= 0xC0; // ADEN=1, ADSC=1
+ 332:	86 b1       	in	r24, 0x06	; 6
+ 334:	80 6c       	ori	r24, 0xC0	; 192
+ 336:	86 b9       	out	0x06, r24	; 6
+				while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
+ 338:	34 9b       	sbis	0x06, 4	; 6
+ 33a:	fe cf       	rjmp	.-4      	; 0x338 <ADC_get+0x196>
+				ADC_DATA[7] = ADC;
+ 33c:	84 b1       	in	r24, 0x04	; 4
+ 33e:	95 b1       	in	r25, 0x05	; 5
+ 340:	90 93 2d 01 	sts	0x012D, r25
+ 344:	80 93 2c 01 	sts	0x012C, r24
+				
+				PORTA = 0x00;
+ 348:	1b ba       	out	0x1b, r1	; 27
+				
+				ADMUX = 0xC0; // prepare for ADC_0
+ 34a:	a7 b9       	out	0x07, r26	; 7
+void ADC_get(void) {
+
+	//-------------IR order----------//	
+	// 0 - 4 - 1 - 5 - 2 - 6 - 3 - 7 //
+
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {			
+ 34c:	80 91 12 01 	lds	r24, 0x0112
+ 350:	90 91 13 01 	lds	r25, 0x0113
+ 354:	01 96       	adiw	r24, 0x01	; 1
+ 356:	90 93 13 01 	sts	0x0113, r25
+ 35a:	80 93 12 01 	sts	0x0112, r24
+ 35e:	80 91 12 01 	lds	r24, 0x0112
+ 362:	90 91 13 01 	lds	r25, 0x0113
+ 366:	08 97       	sbiw	r24, 0x08	; 8
+ 368:	0c f4       	brge	.+2      	; 0x36c <ADC_get+0x1ca>
+ 36a:	3d cf       	rjmp	.-390    	; 0x1e6 <ADC_get+0x44>
+
+			break;
+		}
+		
+	}
+}
+ 36c:	1f 91       	pop	r17
+ 36e:	0f 91       	pop	r16
+ 370:	ff 90       	pop	r15
+ 372:	ef 90       	pop	r14
+ 374:	df 90       	pop	r13
+ 376:	cf 90       	pop	r12
+ 378:	bf 90       	pop	r11
+ 37a:	08 95       	ret
+
+0000037c <ADC_uart>:
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 37c:	5d 9b       	sbis	0x0b, 5	; 11
+ 37e:	fe cf       	rjmp	.-4      	; 0x37c <ADC_uart>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 380:	84 e4       	ldi	r24, 0x44	; 68
+ 382:	8c b9       	out	0x0c, r24	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 384:	5d 9b       	sbis	0x0b, 5	; 11
+ 386:	fe cf       	rjmp	.-4      	; 0x384 <ADC_uart+0x8>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 388:	81 e6       	ldi	r24, 0x61	; 97
+ 38a:	8c b9       	out	0x0c, r24	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 38c:	5d 9b       	sbis	0x0b, 5	; 11
+ 38e:	fe cf       	rjmp	.-4      	; 0x38c <ADC_uart+0x10>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 390:	84 e7       	ldi	r24, 0x74	; 116
+ 392:	8c b9       	out	0x0c, r24	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 394:	5d 9b       	sbis	0x0b, 5	; 11
+ 396:	fe cf       	rjmp	.-4      	; 0x394 <ADC_uart+0x18>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 398:	81 e6       	ldi	r24, 0x61	; 97
+ 39a:	8c b9       	out	0x0c, r24	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 39c:	5d 9b       	sbis	0x0b, 5	; 11
+ 39e:	fe cf       	rjmp	.-4      	; 0x39c <ADC_uart+0x20>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 3a0:	89 e0       	ldi	r24, 0x09	; 9
+ 3a2:	8c b9       	out	0x0c, r24	; 12
+	Uart_Putch0('a');
+	Uart_Putch0('t');
+	Uart_Putch0('a');
+	Uart_Putch0(0x09);
+
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {
+ 3a4:	10 92 13 01 	sts	0x0113, r1
+ 3a8:	10 92 12 01 	sts	0x0112, r1
+ 3ac:	20 e2       	ldi	r18, 0x20	; 32
+		j++;						
+ 3ae:	39 e0       	ldi	r19, 0x09	; 9
+ 3b0:	9c c0       	rjmp	.+312    	; 0x4ea <ADC_uart+0x16e>
+ 3b2:	80 91 14 01 	lds	r24, 0x0114
+ 3b6:	90 91 15 01 	lds	r25, 0x0115
+ 3ba:	01 96       	adiw	r24, 0x01	; 1
+ 3bc:	90 93 15 01 	sts	0x0115, r25
+ 3c0:	80 93 14 01 	sts	0x0114, r24
+
+		tho = ADC_DATA[i]/1000 + 0x30;
+ 3c4:	e0 91 12 01 	lds	r30, 0x0112
+ 3c8:	f0 91 13 01 	lds	r31, 0x0113
+ 3cc:	ee 0f       	add	r30, r30
+ 3ce:	ff 1f       	adc	r31, r31
+ 3d0:	e2 5e       	subi	r30, 0xE2	; 226
+ 3d2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3d4:	80 81       	ld	r24, Z
+ 3d6:	91 81       	ldd	r25, Z+1	; 0x01
+ 3d8:	68 ee       	ldi	r22, 0xE8	; 232
+ 3da:	73 e0       	ldi	r23, 0x03	; 3
+ 3dc:	0e 94 b5 02 	call	0x56a	; 0x56a <__divmodhi4>
+ 3e0:	60 5d       	subi	r22, 0xD0	; 208
+ 3e2:	7f 4f       	sbci	r23, 0xFF	; 255
+ 3e4:	70 93 17 01 	sts	0x0117, r23
+ 3e8:	60 93 16 01 	sts	0x0116, r22
+		hnd = ADC_DATA[i]/100;
+ 3ec:	e0 91 12 01 	lds	r30, 0x0112
+ 3f0:	f0 91 13 01 	lds	r31, 0x0113
+ 3f4:	ee 0f       	add	r30, r30
+ 3f6:	ff 1f       	adc	r31, r31
+ 3f8:	e2 5e       	subi	r30, 0xE2	; 226
+ 3fa:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3fc:	80 81       	ld	r24, Z
+ 3fe:	91 81       	ldd	r25, Z+1	; 0x01
+ 400:	64 e6       	ldi	r22, 0x64	; 100
+ 402:	70 e0       	ldi	r23, 0x00	; 0
+ 404:	0e 94 b5 02 	call	0x56a	; 0x56a <__divmodhi4>
+ 408:	70 93 19 01 	sts	0x0119, r23
+ 40c:	60 93 18 01 	sts	0x0118, r22
+		hnd = hnd%10 + 0x30;
+ 410:	80 91 18 01 	lds	r24, 0x0118
+ 414:	90 91 19 01 	lds	r25, 0x0119
+ 418:	6a e0       	ldi	r22, 0x0A	; 10
+ 41a:	70 e0       	ldi	r23, 0x00	; 0
+ 41c:	0e 94 b5 02 	call	0x56a	; 0x56a <__divmodhi4>
+ 420:	c0 96       	adiw	r24, 0x30	; 48
+ 422:	90 93 19 01 	sts	0x0119, r25
+ 426:	80 93 18 01 	sts	0x0118, r24
+		ten = ADC_DATA[i]/10;
+ 42a:	e0 91 12 01 	lds	r30, 0x0112
+ 42e:	f0 91 13 01 	lds	r31, 0x0113
+ 432:	ee 0f       	add	r30, r30
+ 434:	ff 1f       	adc	r31, r31
+ 436:	e2 5e       	subi	r30, 0xE2	; 226
+ 438:	fe 4f       	sbci	r31, 0xFE	; 254
+ 43a:	80 81       	ld	r24, Z
+ 43c:	91 81       	ldd	r25, Z+1	; 0x01
+ 43e:	6a e0       	ldi	r22, 0x0A	; 10
+ 440:	70 e0       	ldi	r23, 0x00	; 0
+ 442:	0e 94 b5 02 	call	0x56a	; 0x56a <__divmodhi4>
+ 446:	70 93 1b 01 	sts	0x011B, r23
+ 44a:	60 93 1a 01 	sts	0x011A, r22
+		ten = ten%10 + 0x30;
+ 44e:	80 91 1a 01 	lds	r24, 0x011A
+ 452:	90 91 1b 01 	lds	r25, 0x011B
+ 456:	6a e0       	ldi	r22, 0x0A	; 10
+ 458:	70 e0       	ldi	r23, 0x00	; 0
+ 45a:	0e 94 b5 02 	call	0x56a	; 0x56a <__divmodhi4>
+ 45e:	c0 96       	adiw	r24, 0x30	; 48
+ 460:	90 93 1b 01 	sts	0x011B, r25
+ 464:	80 93 1a 01 	sts	0x011A, r24
+		one = ADC_DATA[i]%10 + 0x30;
+ 468:	e0 91 12 01 	lds	r30, 0x0112
+ 46c:	f0 91 13 01 	lds	r31, 0x0113
+ 470:	ee 0f       	add	r30, r30
+ 472:	ff 1f       	adc	r31, r31
+ 474:	e2 5e       	subi	r30, 0xE2	; 226
+ 476:	fe 4f       	sbci	r31, 0xFE	; 254
+ 478:	80 81       	ld	r24, Z
+ 47a:	91 81       	ldd	r25, Z+1	; 0x01
+ 47c:	6a e0       	ldi	r22, 0x0A	; 10
+ 47e:	70 e0       	ldi	r23, 0x00	; 0
+ 480:	0e 94 b5 02 	call	0x56a	; 0x56a <__divmodhi4>
+ 484:	c0 96       	adiw	r24, 0x30	; 48
+ 486:	90 93 1d 01 	sts	0x011D, r25
+ 48a:	80 93 1c 01 	sts	0x011C, r24
+
+		//---ADC_DATA[i]---//
+
+		Uart_Putch0(tho);
+ 48e:	80 91 16 01 	lds	r24, 0x0116
+ 492:	90 91 17 01 	lds	r25, 0x0117
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 496:	5d 9b       	sbis	0x0b, 5	; 11
+ 498:	fe cf       	rjmp	.-4      	; 0x496 <ADC_uart+0x11a>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 49a:	8c b9       	out	0x0c, r24	; 12
+		Uart_Putch0(hnd);
+ 49c:	80 91 18 01 	lds	r24, 0x0118
+ 4a0:	90 91 19 01 	lds	r25, 0x0119
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4a4:	5d 9b       	sbis	0x0b, 5	; 11
+ 4a6:	fe cf       	rjmp	.-4      	; 0x4a4 <ADC_uart+0x128>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4a8:	8c b9       	out	0x0c, r24	; 12
+		Uart_Putch0(ten);
+ 4aa:	80 91 1a 01 	lds	r24, 0x011A
+ 4ae:	90 91 1b 01 	lds	r25, 0x011B
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4b2:	5d 9b       	sbis	0x0b, 5	; 11
+ 4b4:	fe cf       	rjmp	.-4      	; 0x4b2 <ADC_uart+0x136>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4b6:	8c b9       	out	0x0c, r24	; 12
+		Uart_Putch0(one);
+ 4b8:	80 91 1c 01 	lds	r24, 0x011C
+ 4bc:	90 91 1d 01 	lds	r25, 0x011D
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4c0:	5d 9b       	sbis	0x0b, 5	; 11
+ 4c2:	fe cf       	rjmp	.-4      	; 0x4c0 <ADC_uart+0x144>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4c4:	8c b9       	out	0x0c, r24	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4c6:	5d 9b       	sbis	0x0b, 5	; 11
+ 4c8:	fe cf       	rjmp	.-4      	; 0x4c6 <ADC_uart+0x14a>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4ca:	2c b9       	out	0x0c, r18	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4cc:	5d 9b       	sbis	0x0b, 5	; 11
+ 4ce:	fe cf       	rjmp	.-4      	; 0x4cc <ADC_uart+0x150>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4d0:	2c b9       	out	0x0c, r18	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4d2:	5d 9b       	sbis	0x0b, 5	; 11
+ 4d4:	fe cf       	rjmp	.-4      	; 0x4d2 <ADC_uart+0x156>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4d6:	3c b9       	out	0x0c, r19	; 12
+	Uart_Putch0('a');
+	Uart_Putch0('t');
+	Uart_Putch0('a');
+	Uart_Putch0(0x09);
+
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {
+ 4d8:	80 91 12 01 	lds	r24, 0x0112
+ 4dc:	90 91 13 01 	lds	r25, 0x0113
+ 4e0:	01 96       	adiw	r24, 0x01	; 1
+ 4e2:	90 93 13 01 	sts	0x0113, r25
+ 4e6:	80 93 12 01 	sts	0x0112, r24
+ 4ea:	80 91 12 01 	lds	r24, 0x0112
+ 4ee:	90 91 13 01 	lds	r25, 0x0113
+ 4f2:	08 97       	sbiw	r24, 0x08	; 8
+ 4f4:	0c f4       	brge	.+2      	; 0x4f8 <ADC_uart+0x17c>
+ 4f6:	5d cf       	rjmp	.-326    	; 0x3b2 <ADC_uart+0x36>
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 4f8:	5d 9b       	sbis	0x0b, 5	; 11
+ 4fa:	fe cf       	rjmp	.-4      	; 0x4f8 <ADC_uart+0x17c>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 4fc:	8a e0       	ldi	r24, 0x0A	; 10
+ 4fe:	8c b9       	out	0x0c, r24	; 12
+
+/* function of transmiting the data to computer */
+void Uart_Putch0( unsigned char data )
+{
+	
+	while ( !( UCSR0A & (1<<UDRE0)) ); /* Wait for empty transmit buffer */
+ 500:	5d 9b       	sbis	0x0b, 5	; 11
+ 502:	fe cf       	rjmp	.-4      	; 0x500 <ADC_uart+0x184>
+	
+	UDR0 = data; /* Put data into buffer, sends the data */
+ 504:	8d e0       	ldi	r24, 0x0D	; 13
+ 506:	8c b9       	out	0x0c, r24	; 12
+	}
+
+	Uart_Putch0(0x0A);
+	Uart_Putch0(0x0D);
+	
+	j=0;
+ 508:	10 92 15 01 	sts	0x0115, r1
+ 50c:	10 92 14 01 	sts	0x0114, r1
+
+}
+ 510:	08 95       	ret
+
+00000512 <__vector_29>:
+
+void ADC_get(void);
+void ADC_uart(void);
+
+// State / 20ms control period
+SIGNAL(SIG_OVERFLOW3) {
+ 512:	1f 92       	push	r1
+ 514:	0f 92       	push	r0
+ 516:	0f b6       	in	r0, 0x3f	; 63
+ 518:	0f 92       	push	r0
+ 51a:	0b b6       	in	r0, 0x3b	; 59
+ 51c:	0f 92       	push	r0
+ 51e:	11 24       	eor	r1, r1
+ 520:	2f 93       	push	r18
+ 522:	3f 93       	push	r19
+ 524:	4f 93       	push	r20
+ 526:	5f 93       	push	r21
+ 528:	6f 93       	push	r22
+ 52a:	7f 93       	push	r23
+ 52c:	8f 93       	push	r24
+ 52e:	9f 93       	push	r25
+ 530:	af 93       	push	r26
+ 532:	bf 93       	push	r27
+ 534:	ef 93       	push	r30
+ 536:	ff 93       	push	r31
+	
+	cli();
+ 538:	f8 94       	cli
+			
+		ADC_get();
+ 53a:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <ADC_get>
+		ADC_uart();
+ 53e:	0e 94 be 01 	call	0x37c	; 0x37c <ADC_uart>
+
+	sei();
+ 542:	78 94       	sei
+}
+ 544:	ff 91       	pop	r31
+ 546:	ef 91       	pop	r30
+ 548:	bf 91       	pop	r27
+ 54a:	af 91       	pop	r26
+ 54c:	9f 91       	pop	r25
+ 54e:	8f 91       	pop	r24
+ 550:	7f 91       	pop	r23
+ 552:	6f 91       	pop	r22
+ 554:	5f 91       	pop	r21
+ 556:	4f 91       	pop	r20
+ 558:	3f 91       	pop	r19
+ 55a:	2f 91       	pop	r18
+ 55c:	0f 90       	pop	r0
+ 55e:	0b be       	out	0x3b, r0	; 59
+ 560:	0f 90       	pop	r0
+ 562:	0f be       	out	0x3f, r0	; 63
+ 564:	0f 90       	pop	r0
+ 566:	1f 90       	pop	r1
+ 568:	18 95       	reti
+
+0000056a <__divmodhi4>:
+ 56a:	97 fb       	bst	r25, 7
+ 56c:	09 2e       	mov	r0, r25
+ 56e:	07 26       	eor	r0, r23
+ 570:	0a d0       	rcall	.+20     	; 0x586 <__divmodhi4_neg1>
+ 572:	77 fd       	sbrc	r23, 7
+ 574:	04 d0       	rcall	.+8      	; 0x57e <__divmodhi4_neg2>
+ 576:	0c d0       	rcall	.+24     	; 0x590 <__udivmodhi4>
+ 578:	06 d0       	rcall	.+12     	; 0x586 <__divmodhi4_neg1>
+ 57a:	00 20       	and	r0, r0
+ 57c:	1a f4       	brpl	.+6      	; 0x584 <__divmodhi4_exit>
+
+0000057e <__divmodhi4_neg2>:
+ 57e:	70 95       	com	r23
+ 580:	61 95       	neg	r22
+ 582:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000584 <__divmodhi4_exit>:
+ 584:	08 95       	ret
+
+00000586 <__divmodhi4_neg1>:
+ 586:	f6 f7       	brtc	.-4      	; 0x584 <__divmodhi4_exit>
+ 588:	90 95       	com	r25
+ 58a:	81 95       	neg	r24
+ 58c:	9f 4f       	sbci	r25, 0xFF	; 255
+ 58e:	08 95       	ret
+
+00000590 <__udivmodhi4>:
+ 590:	aa 1b       	sub	r26, r26
+ 592:	bb 1b       	sub	r27, r27
+ 594:	51 e1       	ldi	r21, 0x11	; 17
+ 596:	07 c0       	rjmp	.+14     	; 0x5a6 <__udivmodhi4_ep>
+
+00000598 <__udivmodhi4_loop>:
+ 598:	aa 1f       	adc	r26, r26
+ 59a:	bb 1f       	adc	r27, r27
+ 59c:	a6 17       	cp	r26, r22
+ 59e:	b7 07       	cpc	r27, r23
+ 5a0:	10 f0       	brcs	.+4      	; 0x5a6 <__udivmodhi4_ep>
+ 5a2:	a6 1b       	sub	r26, r22
+ 5a4:	b7 0b       	sbc	r27, r23
+
+000005a6 <__udivmodhi4_ep>:
+ 5a6:	88 1f       	adc	r24, r24
+ 5a8:	99 1f       	adc	r25, r25
+ 5aa:	5a 95       	dec	r21
+ 5ac:	a9 f7       	brne	.-22     	; 0x598 <__udivmodhi4_loop>
+ 5ae:	80 95       	com	r24
+ 5b0:	90 95       	com	r25
+ 5b2:	bc 01       	movw	r22, r24
+ 5b4:	cd 01       	movw	r24, r26
+ 5b6:	08 95       	ret
+
+000005b8 <_exit>:
+ 5b8:	f8 94       	cli
+
+000005ba <__stop_program>:
+ 5ba:	ff cf       	rjmp	.-2      	; 0x5ba <__stop_program>
