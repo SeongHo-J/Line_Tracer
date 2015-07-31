@@ -1,43 +1,6 @@
-#define F_CPU 16000000
-
-#include <avr/io.h>
-#include <util/delay.h>
 #include "linetracer_ADC.h"
 
-
-/*
-int main(void) {
-	
-	DDRA = 0xFF;
-	DDRE = 0xFF;
-	DDRF = 0x00;
-	
-	PORTA = 0x00;
-		
-	ADMUX = 0x00;
-	ADCSRA = 0x87;
-	
-	while(1) {
-		
-		ADC_GET(ADC_DATA);
-		ADC_MAX_MIN(ADC_MAX, ADC_MIN, ADC_DATA);
-		ADC_NORMALIZE(NORM_DATA, ADC_DATA, ADC_MAX, ADC_MIN);
-		DATA_OUT(NORM_DATA);	
-						
-	}
-
-	return 0;
-}
-*/
-void init_ADC(void){
-	DDRA = 0xFF;
-	DDRE = 0xFF;
-	DDRF = 0x00;
-	
-	ADMUX = 0xC0;
-	ADCSRA = 0x87;
-}
-
+// Get ADC from IR sensor
 void ADC_GET(int *ADC_DATA) {
 
 	//------------IR order-----------//
@@ -226,29 +189,54 @@ void ADC_NORMALIZE(int *NORM_DATA, const int *ADC_DATA, const int *ADC_MAX, cons
 
 		temp_1 = ADC_MAX[i] - ADC_DATA[i];
 		temp_2 = ADC_MAX[i] - ADC_MIN[i];
-
+		
 		NORM_DATA[i] = (int)((RESOLUTION*temp_1)/temp_2);
 
 	}
 
 }
 
-void DATA_OUT(const int *NORM_DATA) {
+// Get Weighted value for normalize data(NORM_DATA[i])
+void ADC_WEIGHT(int *WEIGHT_DATA, const int *NORM_DATA) {
+	
+	int i;
 
-	int i=0;
-	int k=0x01;
-	int p=0;
+	int weight[8] = {35, 20, 10, 5, -5, -10, -20, -35};
+	
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {
 
-	for(i=IR_NUMBER_m ; i<=IR_NUMBER_M ; i++) {
+		WEIGHT_DATA[i] = weight[i];
 		
-		p=k<<i;
+	}
 
-		if(NORM_DATA[i]>=(int)(RESOLUTION*0.6)) {
-			PORTA = PORTA&(~p);
-		}
-		else {
-			PORTA = PORTA|p;
+}
+
+// Get sensor_data from weighted data(WEIGHT_DATA[i])
+void ADC_SENCERDATA(double *SENSOR_DATA, const int *WEIGHT_DATA, const int *NORM_DATA) {
+
+	int count_sensor=0, temp=0;
+	int i=0;
+	
+	// count the number of sensor determined that it is sensed
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {
+		
+		if(NORM_DATA[i] > 50) count_sensor++;
+		// 50 is a min value that can be thought that it is sensed
+
+	}
+
+
+	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {
+		
+		if(NORM_DATA[i] > 50) {
+			temp += WEIGHT_DATA[i]; // the sum of weighted data for finding error
 		}
 
 	}
-}
+
+	if(count_sensor == 0)
+		SENSOR_DATA[0] = 0;
+	else
+		SENSOR_DATA[0] = (float)(temp / count_sensor);
+
+} 

@@ -14,7 +14,7 @@ Line_Tracer.d Line_Tracer.o: .././Line_Tracer.c \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././linetracer_ADC.h .././LineTracer_MOTER.h
+ .././linetracer_ADC.h .././LineTracer_MOTER.h .././LineTracer_MCU_init.h
 
 c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -49,3 +49,5 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\avr8\ gcc\native\3.4.1061\avr8-g
 .././linetracer_ADC.h:
 
 .././LineTracer_MOTER.h:
+
+.././LineTracer_MCU_init.h:
