@@ -1,13 +1,10 @@
 #define F_CPU 16000000
 
-#include<avr/io.h>
-#include<util/delay.h>
-#include"linetracer_ADC.h"
+#include <avr/io.h>
+#include <util/delay.h>
+#include "linetracer_ADC.h"
 
-int ADC_DATA[8] = {0,};
-int ADC_MAX[8] = {0,};
-int ADC_MIN[8] = {1023,1023,1023,1023,1023,1023,1023,1023};
-int NORM_DATA[8] = {0,};
+
 /*
 int main(void) {
 	
@@ -32,6 +29,15 @@ int main(void) {
 	return 0;
 }
 */
+void init_ADC(void){
+	DDRA = 0xFF;
+	DDRE = 0xFF;
+	DDRF = 0x00;
+	
+	ADMUX = 0xC0;
+	ADCSRA = 0x87;
+}
+
 void ADC_GET(int *ADC_DATA) {
 
 	//------------IR order-----------//
@@ -48,16 +54,16 @@ void ADC_GET(int *ADC_DATA) {
 			////////////////////////////////////////////////////////////////////////////////////
 			case 0 :		
 			
-			PORTE = 0x01;
+			PORTA = 0x01;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[0] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x01; // prepare for ADC_1
+			ADMUX = 0xC1; // prepare for ADC_1
 
 			break;
 
@@ -65,16 +71,16 @@ void ADC_GET(int *ADC_DATA) {
 			//------------------------------------ADC_1---------------------------------------//
 			////////////////////////////////////////////////////////////////////////////////////
 			case 1 :
-			PORTE = 0x02;
+			PORTA = 0x02;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[1] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x02; // prepare for ADC_2
+			ADMUX = 0xC2; // prepare for ADC_2
 
 			break;
 
@@ -82,16 +88,16 @@ void ADC_GET(int *ADC_DATA) {
 			//------------------------------------ADC_2---------------------------------------//
 			////////////////////////////////////////////////////////////////////////////////////
 			case 2 :
-			PORTE = 0x04;
+			PORTA = 0x04;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[2] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x03; // prepare for ADC_3
+			ADMUX = 0xC3; // prepare for ADC_3
 
 			break;
 
@@ -99,16 +105,16 @@ void ADC_GET(int *ADC_DATA) {
 			//------------------------------------ADC_3---------------------------------------//
 			////////////////////////////////////////////////////////////////////////////////////
 			case 3 :
-			PORTE = 0x08;
+			PORTA = 0x08;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[3] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x04; // prepare for ADC_4
+			ADMUX = 0xC4; // prepare for ADC_4
 
 			break;
 
@@ -117,16 +123,16 @@ void ADC_GET(int *ADC_DATA) {
 			////////////////////////////////////////////////////////////////////////////////////
 			case 4 :
 
-			PORTE = 0x10;
+			PORTA = 0x10;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[4] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x05; // prepare for ADC_5
+			ADMUX = 0xC5; // prepare for ADC_5
 
 			break;
 
@@ -136,16 +142,16 @@ void ADC_GET(int *ADC_DATA) {
 			//------------------------------------ADC_5---------------------------------------//
 			////////////////////////////////////////////////////////////////////////////////////
 			case 5 :
-			PORTE = 0x20;
+			PORTA = 0x20;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[5] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x06; // prepare for ADC_6
+			ADMUX = 0xC6; // prepare for ADC_6
 
 			break;
 
@@ -155,16 +161,16 @@ void ADC_GET(int *ADC_DATA) {
 			//------------------------------------ADC_6---------------------------------------//
 			////////////////////////////////////////////////////////////////////////////////////
 			case 6 :
-			PORTE = 0x40;
+			PORTA = 0x40;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[6] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 
-			ADMUX = 0x07; // prepare for ADC_7
+			ADMUX = 0xC7; // prepare for ADC_7
 
 			break;
 
@@ -174,16 +180,16 @@ void ADC_GET(int *ADC_DATA) {
 			//------------------------------------ADC_7---------------------------------------//
 			////////////////////////////////////////////////////////////////////////////////////
 			case 7 :
-			PORTE = 0x80;
+			PORTA = 0x80;
 
 			ADCSRA |= 0xC0; // ADEN=1, ADSC=1
 			while( ((ADCSRA&0x10) == 0x00) ); // wait for ADC complete
 
 			ADC_DATA[7] = ADC;
 			
-			PORTE = 0x00;
+			PORTA = 0x00;
 			
-			ADMUX = 0x00; // prepare for ADC_0
+			ADMUX = 0xC0; // prepare for ADC_0
 
 			break;
 

@@ -569,10 +569,10 @@ END GROUP
  *(.debug_frame)
  .debug_frame   0x00000000      0x104 LineTracer_ADCtest.o
 
-.debug_str      0x00000000      0x1c9
+.debug_str      0x00000000      0x1d2
  *(.debug_str)
- .debug_str     0x00000000      0x1c9 LineTracer_ADCtest.o
-                                0x1fd (size before relaxing)
+ .debug_str     0x00000000      0x1d2 LineTracer_ADCtest.o
+                                0x206 (size before relaxing)
 
 .debug_loc      0x00000000      0x45e
  *(.debug_loc)

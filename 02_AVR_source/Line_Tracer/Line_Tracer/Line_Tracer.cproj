@@ -101,6 +101,12 @@
     <Compile Include="LineTracer_ADC.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="linetracer_ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LineTracer_MOTER.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LineTracer_MOTER_.c">
       <SubType>compile</SubType>
     </Compile>

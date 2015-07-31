@@ -11,13 +11,14 @@ int NORM_DATA[8] = {0,};
 
 int main(void) {
 	
-	DDRA = 0xFF;
-	DDRE = 0xFF;
+	DDRA = 0xFF;  
+	DDRE = 0xFF;  
 	DDRF = 0x00;
 	
-	PORTA = 0x00;
+	PORTA = 0x00;  
 		
 	ADMUX = 0x00;
+	
 	ADCSRA = 0x87;
 	
 	while(1) {
@@ -237,7 +238,7 @@ void DATA_OUT(const int *NORM_DATA) {
 		
 		p=k<<i;
 
-		if(NORM_DATA[i]>=(int)(RESOLUTION*0.6)) {
+		if(NORM_DATA[i]>=(int)(RESOLUTION*0.5)) {
 			PORTA = PORTA&(~p);
 		}
 		else {

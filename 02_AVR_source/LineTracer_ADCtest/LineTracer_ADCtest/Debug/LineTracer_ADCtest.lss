@@ -21,11 +21,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  00000104  00000000  00000000  0000100c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000001c9  00000000  00000000  00001110  2**0
+  9 .debug_str    000001d2  00000000  00000000  00001110  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000045e  00000000  00000000  000012d9  2**0
+ 10 .debug_loc    0000045e  00000000  00000000  000012e2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000030  00000000  00000000  00001737  2**0
+ 11 .debug_ranges 00000030  00000000  00000000  00001740  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -784,10 +784,10 @@ void DATA_OUT(const int *NORM_DATA) {
  35c:	0a 94       	dec	r0
  35e:	e2 f7       	brpl	.-8      	; 0x358 <DATA_OUT+0x10>
 
-		if(NORM_DATA[i]>=(int)(RESOLUTION*0.6)) {
+		if(NORM_DATA[i]>=(int)(RESOLUTION*0.5)) {
  360:	41 91       	ld	r20, Z+
  362:	51 91       	ld	r21, Z+
- 364:	4c 33       	cpi	r20, 0x3C	; 60
+ 364:	42 33       	cpi	r20, 0x32	; 50
  366:	51 05       	cpc	r21, r1
  368:	2c f0       	brlt	.+10     	; 0x374 <DATA_OUT+0x2c>
 			PORTA = PORTA&(~p);
@@ -827,19 +827,20 @@ int NORM_DATA[8] = {0,};
 
 int main(void) {
 	
-	DDRA = 0xFF;
+	DDRA = 0xFF;  
  386:	8f ef       	ldi	r24, 0xFF	; 255
  388:	8a bb       	out	0x1a, r24	; 26
-	DDRE = 0xFF;
+	DDRE = 0xFF;  
  38a:	82 b9       	out	0x02, r24	; 2
 	DDRF = 0x00;
  38c:	10 92 61 00 	sts	0x0061, r1
 	
-	PORTA = 0x00;
+	PORTA = 0x00;  
  390:	1b ba       	out	0x1b, r1	; 27
 		
 	ADMUX = 0x00;
  392:	17 b8       	out	0x07, r1	; 7
+	
 	ADCSRA = 0x87;
  394:	87 e8       	ldi	r24, 0x87	; 135
  396:	86 b9       	out	0x06, r24	; 6
