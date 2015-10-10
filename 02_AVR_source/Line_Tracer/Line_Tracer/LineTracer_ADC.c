@@ -201,7 +201,7 @@ void ADC_WEIGHT(int *WEIGHT_DATA, const int *NORM_DATA) {
 	
 	int i;
 
-	int weight[8] = {35, 20, 10, 5, -5, -10, -20, -35};
+	int weight[8] = {-55, -50, -10, 0, 0, 10, 50, 55};
 	
 	for(i=IR_NUMBER_m ; i<IR_NUMBER_M ; i++) {
 

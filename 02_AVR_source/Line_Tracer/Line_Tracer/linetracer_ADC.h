@@ -16,5 +16,6 @@ void ADC_NORMALIZE(int *NORM_DATA, const int *ADC_DATA, const int *ADC_MAX, cons
 void DATA_OUT(const int *NORM_DATA);
 void ADC_WEIGHT(int *WEIGHT_DATA, const int *NORM_DATA);
 void ADC_SENCERDATA(double *SENSOR_DATA, const int *WEIGHT_DATA, const int *NORM_DATA);
+
 #else
 #endif

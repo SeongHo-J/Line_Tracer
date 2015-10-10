@@ -11,8 +11,8 @@
 #define cbi(PORTX,BitX)	PORTX&=~(1<<BitX)	// Bit clear fuction
 
 void MOTER_test(const int *NORM_DATA);
-void MOTOR_Lspeed(int LM_speed, const double *SENSOR_DATA);
-void MOTOR_Rspeed(int RM_speed, const double *SENSOR_DATA);
+void MOTOR_speed(int speed, const double *SENSOR_DATA);
+// void MOTOR_Rspeed(int RM_speed, const double *SENSOR_DATA);
 void MOTOR_control(const double *SENSOR_DATA, const int Cruze_speed); 
 
 #else

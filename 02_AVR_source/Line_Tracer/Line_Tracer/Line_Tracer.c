@@ -26,7 +26,7 @@ int state = 0;
 
 int LM_speed = 0;
 int RM_speed = 0;
-int Cruze_speed = 0xc0;
+int Cruze_speed = 0x3f;
 
 int main(void)
 {
@@ -90,10 +90,9 @@ int main(void)
 // State switch
 SIGNAL(INT0_vect) {
 
-	cli();	
 	state++;
 	if(state>3) state = 3;
-	sei();
+	
 }
 
 
