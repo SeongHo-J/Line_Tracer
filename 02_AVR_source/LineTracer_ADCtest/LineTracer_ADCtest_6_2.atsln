@@ -1,0 +1,20 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "LineTracer_ADCtest", "LineTracer_ADCtest\LineTracer_ADCtest_6_2.cproj", "{BD96BD33-F697-484C-9B5C-71E9EE4B1BA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD96BD33-F697-484C-9B5C-71E9EE4B1BA6}.Debug|AVR.ActiveCfg = Debug|AVR
+		{BD96BD33-F697-484C-9B5C-71E9EE4B1BA6}.Debug|AVR.Build.0 = Debug|AVR
+		{BD96BD33-F697-484C-9B5C-71E9EE4B1BA6}.Release|AVR.ActiveCfg = Release|AVR
+		{BD96BD33-F697-484C-9B5C-71E9EE4B1BA6}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
